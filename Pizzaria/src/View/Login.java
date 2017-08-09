@@ -52,17 +52,17 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Senha");
 
         txtLogin.setBackground(new java.awt.Color(214, 217, 223));
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
-            }
-        });
         txtLogin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtLoginFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtLoginFocusLost(evt);
+            }
+        });
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
             }
         });
 
@@ -83,6 +83,11 @@ public class Login extends javax.swing.JFrame {
 
         btnEntrar.setText("Entrar");
         btnEntrar.setContentAreaFilled(false);
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,6 +177,19 @@ public class Login extends javax.swing.JFrame {
     private void txtLoginFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginFocusLost
         txtLogin.setBorder(BorderFactory.createMatteBorder(0,0,1,0, Color.BLACK));
     }//GEN-LAST:event_txtLoginFocusLost
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        Principal p = new Principal();
+        String nome = txtLogin.getText();
+        String senha = txtSenha.getText();
+        
+       if (("admin".equals(nome)) && ("admin1234".equals(senha))){
+           p.show();
+       }
+            
+            
+        
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
