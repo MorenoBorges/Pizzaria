@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author Lab
@@ -16,7 +18,29 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        
+        //Instanciado as telas relacionadas ao cliente
+        Novo_Cliente newC = new Novo_Cliente();
+        Excluir_Cliente delC = new Excluir_Cliente();
+        Editar_Cliente editC = new Editar_Cliente();
+        Consultar_Cliente findC = new Consultar_Cliente();
+        
+        //Instanciando as telas relacionadas as pizzas
+        Nova_Pizza newP = new Nova_Pizza();
+        Excluir_Pizza delP = new Excluir_Pizza();
+        Editar_Pizza editP = new Editar_Pizza();
+        Consultar_Pizza finP = new Consultar_Pizza();
+        
+        //Instanciando as telas relacionadas as vendas
+     
+        Excluir_Venda delV = new Excluir_Venda();
+        Editar_Vendas editV = new Editar_Vendas();
+        Consultar_Venda findV = new Consultar_Venda();
+        
+        jDesktopPane1.add(findV);
+        findV.show();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,14 +53,11 @@ public class Principal extends javax.swing.JFrame {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jInternalFrame2 = new javax.swing.JInternalFrame();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        abirNovaVenda = new javax.swing.JMenuItem();
+        abrirExcluirVenda = new javax.swing.JMenuItem();
+        abrirEditarVenda = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -63,66 +84,51 @@ public class Principal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pizzaria Mucho Gusto");
         setResizable(false);
-
-        jInternalFrame2.setVisible(true);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Nome", "Entregar", "Endereço", "Sabor", "Preço"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
-        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
-        jInternalFrame2Layout.setHorizontalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
-        );
-        jInternalFrame2Layout.setVerticalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGap(0, 592, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame2)
+            .addGap(0, 417, Short.MAX_VALUE)
         );
-        jDesktopPane1.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu1.setText("Vendas");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_local_atm_48px_352492.png"))); // NOI18N
-        jMenuItem1.setText("Nova");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_delete_48px_352303.png"))); // NOI18N
-        jMenuItem2.setText("Excluir");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        abirNovaVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        abirNovaVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_local_atm_48px_352492.png"))); // NOI18N
+        abirNovaVenda.setText("Nova");
+        abirNovaVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                abirNovaVendaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(abirNovaVenda);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_format_paint_48px_352391 (1).png"))); // NOI18N
-        jMenuItem3.setText("Editar");
-        jMenu1.add(jMenuItem3);
+        abrirExcluirVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        abrirExcluirVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_delete_48px_352303.png"))); // NOI18N
+        abrirExcluirVenda.setText("Excluir");
+        abrirExcluirVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirExcluirVendaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(abrirExcluirVenda);
+
+        abrirEditarVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        abrirEditarVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_format_paint_48px_352391 (1).png"))); // NOI18N
+        abrirEditarVenda.setText("Editar");
+        abrirEditarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirEditarVendaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(abrirEditarVenda);
 
         jMenuBar1.add(jMenu1);
 
@@ -130,18 +136,38 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_control_point_48px_352288.png"))); // NOI18N
         jMenuItem4.setText("Novo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_delete_48px_352303.png"))); // NOI18N
         jMenuItem11.setText("Excluir");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_format_paint_48px_352391 (1).png"))); // NOI18N
         jMenuItem12.setText("Alterar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem12);
 
         jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_clear_all_48px_352269.png"))); // NOI18N
         jMenuItem13.setText("Consultar");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem13);
 
         jMenuBar1.add(jMenu2);
@@ -150,6 +176,11 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_control_point_48px_352288.png"))); // NOI18N
         jMenuItem5.setText("Novo");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem5);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_delete_48px_352303.png"))); // NOI18N
@@ -163,6 +194,11 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_format_paint_48px_352391 (1).png"))); // NOI18N
         jMenuItem7.setText("Alterar");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_ic_clear_all_48px_352269.png"))); // NOI18N
@@ -180,10 +216,21 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_i9_216648.png"))); // NOI18N
         jMenuItem9.setText("Sobre");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem9);
 
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_icons_exit2_1564506.png"))); // NOI18N
         jMenuItem10.setText("Sair");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem10);
 
         jMenuBar1.add(jMenu4);
@@ -194,7 +241,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,17 +252,105 @@ public class Principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void abrirExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirExcluirVendaActionPerformed
+        Excluir_Venda delV = new Excluir_Venda();
+        
+        jDesktopPane1.add(delV);
+        
+        delV.show();
+    }//GEN-LAST:event_abrirExcluirVendaActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
+        Excluir_Pizza delP = new Excluir_Pizza();
+        
+        jDesktopPane1.add(delP);
+        
+        delP.show();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
+        Consultar_Pizza findP = new Consultar_Pizza();
+        
+        jDesktopPane1.add(findP);
+        
+        findP.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void abirNovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abirNovaVendaActionPerformed
+        Nova_Venda newV = new Nova_Venda();
+        
+        jDesktopPane1.add(newV);
+        
+        newV.show();
+    }//GEN-LAST:event_abirNovaVendaActionPerformed
+
+    private void abrirEditarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirEditarVendaActionPerformed
+        Editar_Vendas editV = new Editar_Vendas();
+        
+        jDesktopPane1.add(editV);
+        
+        editV.show();
+    }//GEN-LAST:event_abrirEditarVendaActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Novo_Cliente newC = new Novo_Cliente();
+        
+        jDesktopPane1.add(newC);
+        
+        newC.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        Excluir_Cliente delC = new Excluir_Cliente();
+        
+        jDesktopPane1.add(delC);
+        
+        delC.show();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        Editar_Cliente editC = new Editar_Cliente();
+        
+        jDesktopPane1.add(editC);
+        
+        editC.show();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        Consultar_Cliente findC = new Consultar_Cliente();
+        
+        jDesktopPane1.add(findC);
+        
+        findC.show();
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Nova_Pizza newP = new Nova_Pizza();
+        
+        jDesktopPane1.add(newP);
+        
+        newP.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        Editar_Pizza editP = new Editar_Pizza();
+        
+        jDesktopPane1.add(editP);
+        
+        editP.show();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        telaSobre sobre = new telaSobre();
+        
+        jDesktopPane1.add(sobre);
+        
+        sobre.show();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,28 +388,25 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem abirNovaVenda;
+    private javax.swing.JMenuItem abrirEditarVenda;
+    private javax.swing.JMenuItem abrirExcluirVenda;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
